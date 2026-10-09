@@ -11,6 +11,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* Tailwind colors read the CSS tokens in styles.css :root —
+       the color scheme lives there (ref: assets/brand/Gradient.jpg). */
+    const token = (name) => `rgb(var(--rgb-${name}) / <alpha-value>)`;
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal:            token('teal'),
+              'teal-green':    token('teal-green'),
+              mid:             token('mid'),
+              'lime-green':    token('lime-green'),
+              lime:            token('lime'),
+              'teal-deep':     token('teal-deep'),
+              'lime-deep':     token('lime-deep'),
+              'teal-dark':  token('teal-dark'),
+              'lime-dark':  token('lime-dark'),
+              'lime-light':    token('lime-light'),
+              'teal-tint':     token('teal-tint'),
+              'lime-tint':     token('lime-tint'),
+            },
+            ink: {
+              DEFAULT: token('ink'),
+              soft:    token('ink-soft'),
+              muted:   token('ink-muted'),
+            },
+            line: token('line'),
+          },
+          maxWidth: {
+            '8xl': 'var(--container-max)',   /* 80% of the page */
+          },
+          backgroundImage: {
+            'grad-brand': 'var(--grad-brand)',
+            'grad-deep':  'var(--grad-deep)',
+            'grad-dark':  'var(--grad-dark)',
+            'grad-soft':  'var(--grad-soft)',
+          },
+        },
+      },
+    };
+  </script>
   <link rel="stylesheet" href="styles.css">
 
 </head>
@@ -22,14 +64,20 @@
        SITE HEADER / NAVIGATION
   ====================================================== -->
   <header class="site-header" role="banner">
-    <div class="container max-w-7xl mx-auto px-4">
+    <div class="container max-w-8xl mx-auto px-4">
       <nav class="nav " aria-label="Main navigation">
 
         <a href="#home" class="nav__logo" aria-label="CgHealth — return to home">
+          <!-- White logo over the hero; swaps to logo.jpg once the bar turns white -->
           <img
-            src="assets/brand/logo.png"
-            alt="CgHealth Holistic Wellness Solutions"
-            class="nav__logo-img">
+            src="assets/brand/logo-fullclear.png"
+            alt="Cedar Grove Senior Health"
+            class="nav__logo-img nav__logo-img--top">
+          <img
+            src="assets/brand/logo.jpg"
+            alt=""
+            aria-hidden="true"
+            class="nav__logo-img nav__logo-img--scrolled">
         </a>
 
         <!-- CSS-only mobile toggle via checkbox sibling selector -->
@@ -45,7 +93,7 @@
         <div class="nav__drawer" id="nav-drawer">
           <div class="nav__drawer-top">
             <img
-              src="assets/brand/logo.png"
+              src="assets/brand/logo.jpg"
               alt=""
               class="nav__drawer-logo"
               aria-hidden="true">
@@ -54,12 +102,10 @@
 
           <ul class="nav__links" role="list">
             <li><a href="#home"        class="nav__link">Home</a></li>
-            <li><a href="#about"       class="nav__link">About Us</a></li>
-            <li><a href="#services"    class="nav__link">Medicare</a></li>
-            <li><a href="#calculators" class="nav__link">Calculators</a></li>
-            <li><a href="#webinars"    class="nav__link">Webinars</a></li>
-            <li><a href="#reviews"     class="nav__link">Reviews</a></li>
-            <li><a href="#contact"     class="nav__link nav__link--cta">Contact Us</a></li>
+            <li><a href="team.html"    class="nav__link">Our Team</a></li>  
+            <li><a href="#services"     class="nav__link ">Medicare Info</a></li>
+            <li><a href="#contact"     class="nav__link ">Contact Us</a></li>
+             <li><a href="https://event.cedargrovesolutiongroup.com/"    class="nav__link nav__link--cta">Webinars</a></li>
           </ul>
 
           <div class="nav__drawer-footer">
@@ -127,7 +173,7 @@
             <div class="carousel__text">
               <h1 class="carousel__heading">Solutions<br>You Can<br>Count On.</h1>
               <p class="carousel__sub">We work for <strong>you</strong> &mdash; not the insurance companies.</p>
-              <a href="#contact" class="btn btn--gold carousel__cta">Schedule a Free Consultation</a>
+              <a href="#contact" class="btn btn--primary carousel__cta">Call Us :  985-282-1000</a>
             </div>
           </div>
 
@@ -145,7 +191,7 @@
             <div class="carousel__text">
               <h1 class="carousel__heading">The Right Plan.<br>The Right Fit.</h1>
               <p class="carousel__sub">We compare plans across multiple carriers to find what&rsquo;s best for your life and your budget.</p>
-              <a href="#services" class="btn btn--gold carousel__cta">Explore Your Coverage Options</a>
+              <a href="#services" class="btn btn--primary carousel__cta">Explore Your Coverage Options</a>
             </div>
           </div>
 
@@ -163,7 +209,7 @@
             <div class="carousel__text">
               <h1 class="carousel__heading">Your Partner<br>in Medicare.<br>For Life.</h1>
               <p class="carousel__sub">From enrollment to annual reviews, we&rsquo;re with you every step of the way.</p>
-              <a href="#reviews" class="btn btn--gold carousel__cta">See What Our Clients Say</a>
+              <a href="#reviews" class="btn btn--primary carousel__cta">See What Our Clients Say</a>
             </div>
           </div>
 
@@ -189,10 +235,10 @@
          OUR APPROACH
     =================================================== -->
     <section id="approach" class="s-approach" aria-labelledby="approach-heading">
-      <div class="container max-w-7xl mx-auto px-4">
+      <div class="container max-w-8xl mx-auto px-4">
         <header class="section-header">
           <h2 id="approach-heading" class="section-heading text-4xl font-bold">Why CG Healthcare Group?</h2>
-          <p class="text-sm text-gray-500 text-center max-w-3xl mx-auto mt-2">
+          <p class="text-sm text-ink-muted text-center max-w-3xl mx-auto mt-2">
             Navigating Medicare doesn&rsquo;t have to be overwhelming. We&rsquo;re here to make it
             straightforward  and to stay by your side every step of the way.
           </p>
@@ -232,11 +278,11 @@
 
 
       </div>
-        <div class="approach__cta rounded-xl py-16" style="background-color: #155F42;">
+        <div class="approach__cta rounded-xl py-16">
           <p>Have questions about the process? Talk to one of our agents &mdash;
             we&rsquo;ll walk you through every step, from your first question to your
             final plan.</p>
-          <a href="#consultation" class="btn btn--gold bg-[#266348] text-white" style="margin-top:1rem; display:inline-block;">Schedule a Free Consultation</a>
+          <a href="tel:9852821000" class="btn btn--primary" style="margin-top:1rem; display:inline-block;">Call Us :  985-282-1000</a>
         </div>
     </section>
 
@@ -245,7 +291,7 @@
          SERVICES / COVERAGE TYPES
     =================================================== -->
     <section id="services" class="s-services" aria-labelledby="services-heading">
-      <div class="container max-w-7xl mx-auto px-4">
+      <div class="container max-w-8xl mx-auto px-4">
         <header class="section-header">
           <h2 id="services-heading" class="section-heading  text-4xl font-bold">Medicare &amp; Health Coverage</h2>
           <p class="section-sub text-sm">
@@ -336,175 +382,14 @@
     </section>
 
     <!-- ===================================================
-         CALCULATOR LIBRARY
-    =================================================== -->
-    <section id="calculators" class="s-calculators" aria-labelledby="calc-heading">
-      <div class="s-calculators__bg" aria-hidden="true"></div>
-      <div class="container max-w-7xl mx-auto px-4">
-        <header class="section-header section-header--light">
-          <h2 id="calc-heading" class="section-heading section-heading--light text-4xl font-bold">
-            Free Calculator Library
-          </h2>
-          <p class="section-sub section-sub--light text-sm">
-            Ten planning tools to help you estimate costs, penalties, and benefits
-            then talk to one of our agents for personalized guidance.
-          </p>
-        </header>
-
-        <div class="mc-carousel" tabindex="0"
-             aria-roledescription="carousel"
-             aria-label="Free Calculator Library">
-          <div class="mc-carousel__viewport">
-            <div class="mc-carousel__track">
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">01</div>
-                <h3 class="calc-card__title">ACA Health Insurance Qualification</h3>
-                <p class="calc-card__desc">Determine your eligibility for marketplace subsidies. Covers all state-based exchanges and healthcare.gov states.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>State of residence</li>
-                  <li>Household size &amp; income</li>
-                  <li>Age &amp; tobacco use</li>
-                  <li>Plan tier (Bronze &ndash; Platinum)</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">02</div>
-                <h3 class="calc-card__title">IRMAA Calculator</h3>
-                <p class="calc-card__desc">Calculate your Income-Related Monthly Adjustment Amount &mdash; the premium surcharge on Parts B and D for higher-income enrollees.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Tax filing status</li>
-                  <li>Modified Adjusted Gross Income (MAGI)</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">03</div>
-                <h3 class="calc-card__title">Enrollment Periods Calculator</h3>
-                <p class="calc-card__desc">Find your Initial Enrollment Period window and any Special Enrollment Period based on qualifying life events.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Date of birth</li>
-                  <li>Part A start date</li>
-                  <li>Special circumstances (lost coverage, moved, etc.)</li>
-                  <li>Qualifying event date</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">04</div>
-                <h3 class="calc-card__title">Late Enrollment Penalty Calculator</h3>
-                <p class="calc-card__desc">Estimate the permanent monthly penalty added to your Part B or Part D premium if you missed your enrollment window.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>First eligible enrollment date</li>
-                  <li>Actual enrollment date</li>
-                  <li>Creditable coverage details</li>
-                  <li>Current Part D benchmark premium</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">05</div>
-                <h3 class="calc-card__title">Social Security Calculator</h3>
-                <p class="calc-card__desc">Estimate your monthly Social Security retirement benefit based on your earnings history and planned retirement age.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Average annual earnings (highest 35 years)</li>
-                  <li>Birth year</li>
-                  <li>Planned retirement age</li>
-                  <li>Spousal benefit option</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">06</div>
-                <h3 class="calc-card__title">Simple Retirement Calculator</h3>
-                <p class="calc-card__desc">Project how much you&rsquo;ll need in retirement and whether your current savings are on track to get you there.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Current &amp; retirement age, life expectancy</li>
-                  <li>Pre-tax income &amp; replacement target</li>
-                  <li>Current savings &amp; monthly contribution</li>
-                  <li>Expected return &amp; inflation rate</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">07</div>
-                <h3 class="calc-card__title">Annuity Calculator</h3>
-                <p class="calc-card__desc">Model immediate, deferred, fixed, or variable annuity scenarios to understand projected income streams in retirement.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Annuity type &amp; initial investment</li>
-                  <li>Expected return &amp; years to payout</li>
-                  <li>Payout period &amp; payment frequency</li>
-                  <li>Inflation adjustment &amp; beneficiary options</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">08</div>
-                <h3 class="calc-card__title">IUL Calculator</h3>
-                <p class="calc-card__desc">See how an Indexed Universal Life policy could build savings and generate tax-free retirement income from age 67 through 100.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Age (30&ndash;55 range)</li>
-                  <li>Monthly savings ($300 minimum)</li>
-                  <li>Outputs: initial coverage, projected cash value at 67, projected tax-free annual income (non-guaranteed 8% growth)</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">09</div>
-                <h3 class="calc-card__title">Final Expenses Calculator</h3>
-                <p class="calc-card__desc">Estimate the real cost of end-of-life arrangements &mdash; burial or cremation &mdash; with inflation projections to help you plan ahead.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>Burial vs. cremation preference</li>
-                  <li>Location type</li>
-                  <li>Inflation projection years</li>
-                  <li>Itemized cost breakdown (casket, plot, services, etc.)</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-              <article class="calc-card">
-                <div class="calc-card__num" aria-hidden="true">10</div>
-                <h3 class="calc-card__title">Medicare Savings Plan Calculator</h3>
-                <p class="calc-card__desc">Find out if you qualify for a Medicare Savings Program that helps pay Part A and B premiums, deductibles, and copayments.</p>
-                <ul class="calc-card__inputs" aria-label="Key inputs">
-                  <li>State of residence (standard / AK / HI)</li>
-                  <li>Household size</li>
-                  <li>Monthly income</li>
-                  <li>Countable assets</li>
-                </ul>
-                <a href="#consultation" class="calc-card__cta">Get Started</a>
-              </article>
-
-            </div>
-          </div>
-          <div class="mc-carousel__controls">
-            <button class="mc-carousel__btn mc-carousel__btn--prev" aria-label="Previous calculators">&#8249;</button>
-            <div class="mc-carousel__progress" role="presentation" aria-hidden="true">
-              <div class="mc-carousel__progress-fill"></div>
-            </div>
-            <button class="mc-carousel__btn mc-carousel__btn--next" aria-label="Next calculators">&#8250;</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================================================
          WEBINARS
     =================================================== -->
     <section id="webinars" class="s-webinars" aria-labelledby="webinar-heading">
-      <div class="container max-w-7xl mx-auto px-4">
-        <header class="section-header">
-          <h2 id="webinar-heading" class="section-heading  text-4xl font-bold">Free Medicare Education Webinars</h2>
-          <p class="section-sub text-sm">
+      <div class="s-webinars__bg" aria-hidden="true"></div>
+      <div class="container max-w-8xl mx-auto px-4">
+        <header class="section-header section-header--light">
+          <h2 id="webinar-heading" class="section-heading section-heading--light text-4xl font-bold">Free Medicare Education Webinars</h2>
+          <p class="section-sub section-sub--light text-sm">
             Join one of our free online sessions and learn how to make the most of your Medicare
             coverage. Straight answers &mdash; no sales pitch.
           </p>
@@ -527,7 +412,7 @@
               <h3 class="webinar__subhead webinar__subhead--light">24-Hour Reminder</h3>
               <p>Sign up and we&rsquo;ll send you a text or email reminder 24 hours before
                 your scheduled session so you never miss it.</p>
-              <a href="#consultation" class="btn btn--gold btn--sm">Set a Reminder</a>
+              <a href="#consultation" class="btn btn--primary btn--sm">Set a Reminder</a>
             </div>
           </div>
 
@@ -598,7 +483,7 @@
       <!-- ===================================================
          FAQ
     =================================================== -->
-    <section id="faq" class="py-20 px-4" style="background-color: #155F42;" aria-labelledby="faq-heading">
+    <section id="faq" class="s-faq-dark py-20 px-4" aria-labelledby="faq-heading">
       <div class="max-w-3xl mx-auto">
         <p class="text-center text-xs font-bold uppercase tracking-widest text-white/75 mb-3">Still Not Sure?</p>
         <h2 id="faq-heading" class="text-center text-4xl font-bold !text-white mb-12">Frequently Asked Questions</h2>
@@ -607,10 +492,10 @@
 
           <details class="bg-white rounded-2xl overflow-hidden group">
             <summary class="flex justify-between items-center px-8 py-6 cursor-pointer select-none [&::-webkit-details-marker]:hidden [&::marker]:hidden">
-              <span class="font-bold text-[#1C1A14] text-lg">When should I enroll in Medicare?</span>
-              <svg class="w-5 h-5 flex-shrink-0 text-[#3DBD8A] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              <span class="font-bold text-brand-teal-deep text-lg">When should I enroll in Medicare?</span>
+              <svg class="w-5 h-5 flex-shrink-0 text-brand-teal transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="px-8 pb-6 pt-4 border-t border-gray-200 text-[#3C3928] leading-relaxed">
+            <div class="px-8 pb-6 pt-4 border-t border-line text-ink-soft leading-relaxed">
               <p>Your <strong>Initial Enrollment Period (IEP)</strong> starts three months before
                 the month you turn 65 and ends three months after &mdash; a 7-month window in
                 total. Missing this window without a qualifying Special Enrollment Period may
@@ -621,10 +506,10 @@
 
           <details class="bg-white rounded-2xl overflow-hidden group">
             <summary class="flex justify-between items-center px-8 py-6 cursor-pointer select-none [&::-webkit-details-marker]:hidden [&::marker]:hidden">
-              <span class="font-bold text-[#1C1A14] text-lg">Does it cost me anything to work with CG Healthcare Group?</span>
-              <svg class="w-5 h-5 flex-shrink-0 text-[#3DBD8A] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              <span class="font-bold text-brand-teal-deep text-lg">Does it cost me anything to work with CG Healthcare Group?</span>
+              <svg class="w-5 h-5 flex-shrink-0 text-brand-teal transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="px-8 pb-6 pt-4 border-t border-gray-200 text-[#3C3928] leading-relaxed">
+            <div class="px-8 pb-6 pt-4 border-t border-line text-ink-soft leading-relaxed">
               <p>No &mdash; our services are completely <strong>free to you as a client</strong>.
                 We are licensed independent agents and are compensated directly by the insurance
                 carriers whose plans we help you enroll in. You receive the same plan at the
@@ -635,10 +520,10 @@
 
           <details class="bg-white rounded-2xl overflow-hidden group">
             <summary class="flex justify-between items-center px-8 py-6 cursor-pointer select-none [&::-webkit-details-marker]:hidden [&::marker]:hidden">
-              <span class="font-bold text-[#1C1A14] text-lg">Can I change my plan if I&rsquo;m not happy with it?</span>
-              <svg class="w-5 h-5 flex-shrink-0 text-[#3DBD8A] transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+              <span class="font-bold text-brand-teal-deep text-lg">Can I change my plan if I&rsquo;m not happy with it?</span>
+              <svg class="w-5 h-5 flex-shrink-0 text-brand-teal transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </summary>
-            <div class="px-8 pb-6 pt-4 border-t border-gray-200 text-[#3C3928] leading-relaxed">
+            <div class="px-8 pb-6 pt-4 border-t border-line text-ink-soft leading-relaxed">
               <p>Yes. Medicare plans can generally be changed once per year during the
                 <strong>Annual Enrollment Period (AEP)</strong>, which runs October&nbsp;15
                 through December&nbsp;7, with changes effective January&nbsp;1. Certain life
@@ -652,7 +537,7 @@
         </div>
 
         <div class="text-center">
-          <a href="#contact" class="btn btn--gold">Schedule a Free Consultation</a>
+          <a href="#contact" class="btn btn--primary">Call Us :  985-282-1000</a>
         </div>
       </div>
     </section>
@@ -661,64 +546,156 @@
          REVIEWS
     =================================================== -->
     <section id="reviews" class="s-reviews" aria-labelledby="reviews-heading">
-      <div class="container max-w-7xl mx-auto px-4">
+      <div class="container max-w-8xl mx-auto px-4">
         <header class="section-header">
-          <div class="reviews__aggregate" role="img" aria-label="Five stars — 400 plus Google reviews">
+          <div class="reviews__aggregate" role="img" aria-label="4.9 out of 5 stars from over 400 Google reviews. A plus Better Business Bureau rating.">
             <span class="reviews__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="reviews__count">400+ Five-Star Google Reviews</span>
+            <span class="reviews__count">4.9 out of 5 &middot; 400+ Google reviews</span>
+            <span class="reviews__badge">A+ BBB Accredited</span>
           </div>
           <h2 id="reviews-heading" class="section-heading">What Our Clients Say</h2>
-          <p class="section-sub">
-            Hear from the people who trust CG Healthcare Group with their Medicare coverage.
-          </p>
+          
         </header>
 
-        <div class="reviews__grid">
+        <div class="reviews-carousel" tabindex="0"
+             aria-roledescription="carousel"
+             aria-label="Client reviews">
+          <div class="reviews-carousel__viewport">
+            <div class="reviews-carousel__track">
 
-          <article class="review-card">
-            <div class="review-card__stars" role="img" aria-label="Five stars">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  After turning 65, I was completely lost trying to figure out Medicare. The team at
+                  CG Healthcare Group sat down with me, explained everything in plain language, and
+                  helped me find a plan that actually covers my prescriptions. No pressure, no
+                  confusion &mdash; just honest help.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Margaret T.</strong> &mdash; Covington, LA
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  I&rsquo;ve been with CG Healthcare Group for three years now. When my old
+                  plan&rsquo;s premiums went up, they called me during Open Enrollment to
+                  review my options. That kind of attention is rare, and I&rsquo;m grateful
+                  for it every year.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Robert K.</strong> &mdash; Mandeville, LA
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  My husband and I needed two different plans because of our different doctors
+                  and medications. They handled both of us at the same time and made sure we each
+                  got the right fit. We could not recommend them more highly.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Dorothy &amp; Frank M.</strong> &mdash; Slidell, LA
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  DJ went over several different plans to fine the one that fit me and my wife
+                  the best. I wanted the advantage plan and the supplement plan worked best for
+                  her. He also made us aware of our exposure to the possibility being hit with
+                  2 large out of pocket payments if we got hit with it in Nov or Dec and then
+                  again in Jan. So we got coverage to satisfy that scenario.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Rusty Creswell</strong>
+                  <span class="review-card__meta">13 reviews &middot; 11 months ago</span>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  I enjoyed working with, Brandon. Very knowledgeable, easy to understand and
+                  helpful with Medicare. He is helping me sign up for it. I believe that he
+                  will be there when I have questions.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Debi Butler</strong>
+                  <span class="review-card__meta">7 reviews &middot; 1 photo &middot; 4 months ago</span>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  Joey was professional and I felt like he was really taking my concerns into
+                  account when he made a recommendation. I highly encourage anyone interested
+                  in Medicaide take the time to discuss their options with Joey. He made the
+                  process painless.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Tom Kimmitt</strong>
+                  <span class="review-card__meta">Local Guide &middot; 13 reviews &middot; 4 photos &middot; Edited 3 months ago</span>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  I was really stressed out about signing up for Medicare, but DJ really took
+                  it slow and helped me get signed up quickly, and continues to work with me
+                  to make sure the plan I have continues to work best for me. Really took the
+                  headache out of choosing! Cedar Grove folks are life-savers, thanks DJ and
+                  Cedar Grove!
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Dianne Drinkard</strong>
+                  <span class="review-card__meta">Local Guide &middot; 34 reviews &middot; 1 photo &middot; 3 months ago</span>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars" role="img" aria-label="Five stars">
+                  &#9733;&#9733;&#9733;&#9733;&#9733;
+                </div>
+                <blockquote class="review-card__quote">
+                  Our agent, Brandon Wahl, was very knowledgeable and helpful with us in
+                  finding the best Medicare Advantage plan that would fit all our needs.
+                  Would highly recommend Cedar Grove Senior Health Solutions and Brandon Wahl.
+                </blockquote>
+                <footer class="review-card__author">
+                  <strong>Carolyn Darby</strong>
+                  <span class="review-card__meta">Local Guide &middot; 47 reviews &middot; 20 photos &middot; 3 months ago</span>
+                </footer>
+              </article>
+
             </div>
-            <blockquote class="review-card__quote">
-              After turning 65, I was completely lost trying to figure out Medicare. The team at
-              CG Healthcare Group sat down with me, explained everything in plain language, and
-              helped me find a plan that actually covers my prescriptions. No pressure, no
-              confusion &mdash; just honest help.
-            </blockquote>
-            <footer class="review-card__author">
-              <strong>Margaret T.</strong> &mdash; Covington, LA
-            </footer>
-          </article>
+          </div>
 
-          <article class="review-card">
-            <div class="review-card__stars" role="img" aria-label="Five stars">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </div>
-            <blockquote class="review-card__quote">
-              I&rsquo;ve been with CG Healthcare Group for three years now. When my old
-              plan&rsquo;s premiums went up, they called me during Open Enrollment to
-              review my options. That kind of attention is rare, and I&rsquo;m grateful
-              for it every year.
-            </blockquote>
-            <footer class="review-card__author">
-              <strong>Robert K.</strong> &mdash; Mandeville, LA
-            </footer>
-          </article>
-
-          <article class="review-card">
-            <div class="review-card__stars" role="img" aria-label="Five stars">
-              &#9733;&#9733;&#9733;&#9733;&#9733;
-            </div>
-            <blockquote class="review-card__quote">
-              My husband and I needed two different plans because of our different doctors
-              and medications. They handled both of us at the same time and made sure we each
-              got the right fit. We could not recommend them more highly.
-            </blockquote>
-            <footer class="review-card__author">
-              <strong>Dorothy &amp; Frank M.</strong> &mdash; Slidell, LA
-            </footer>
-          </article>
-
+          <div class="reviews-carousel__controls">
+            <button type="button" class="reviews-carousel__btn reviews-carousel__btn--prev" aria-label="Previous review">&#8249;</button>
+            <div class="reviews-carousel__dots" role="tablist" aria-label="Choose a review"></div>
+            <button type="button" class="reviews-carousel__btn reviews-carousel__btn--next" aria-label="Next review">&#8250;</button>
+          </div>
+          <p class="reviews-carousel__status visually-hidden" aria-live="polite"></p>
         </div>
       </div>
     </section>
@@ -729,7 +706,7 @@
          ABOUT
     =================================================== -->
     <section id="about" class="s-about" aria-labelledby="about-heading">
-      <div class="container about__inner max-w-7xl mx-auto px-4">
+      <div class="container about__inner max-w-8xl mx-auto px-4">
 
         <div class="about__content">
           <h2 id="about-heading" class="section-heading section-heading--light">
@@ -759,46 +736,51 @@
           <h3 class="about__contact-title">Get in Touch</h3>
           <ul class="contact-list" aria-label="Contact information">
             <li>
-              <span class="contact-list__icon" aria-hidden="true">&#9990;</span>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
               <span>
-                <strong>Primary Phone</strong>
                 <a href="tel:9852821000">(985) 282-1000</a>
               </span>
             </li>
             <li>
-              <span class="contact-list__icon" aria-hidden="true">&#9990;</span>
-              <span>
-                <strong>Alternate</strong>
-                <a href="tel:9859512054">(985) 951-2054</a>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
               </span>
-            </li>
-            <li>
-              <span class="contact-list__icon" aria-hidden="true">&#9646;</span>
               <span>
-                <strong>Fax</strong>
                 <span>(985) 951-2048</span>
               </span>
             </li>
             <li>
-              <span class="contact-list__icon" aria-hidden="true">&#9679;</span>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
               <span>
-                <strong>Address</strong>
                 <span>406 N. Florida Street, Suite 1<br>Covington, LA 70433</span>
               </span>
             </li>
             <li>
-              <span class="contact-list__icon" aria-hidden="true">f</span>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
               <span>
-                <strong>Facebook</strong>
-                <a href="https://facebook.com/cedargrovemedins"
+                <a href="mailto:info@reply.cedargrovesolutiongroup.com">info@reply.cedargrovesolutiongroup.com</a>
+              </span>
+            </li>
+            <li>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              </span>
+              <span>
+                <a href="https://www.facebook.com/cedargroveseniorhealthsolutions/"
                    target="_blank" rel="noopener noreferrer">
-                  facebook.com/cedargrovemedins
+                  facebook.com/cedargroveseniorhealthsolutions/
                 </a>
               </span>
             </li>
           </ul>
-          <a href="#consultation" class="btn btn--primary btn--full contact-cta-btn bg-[#266348]">
-            Schedule a Free Consultation
+          <a href="https://event.cedargrovesolutiongroup.com/" class="btn btn--primary btn--full contact-cta-btn">
+            Register for our Webinar
           </a>
         </div>
 
@@ -811,32 +793,11 @@
        READY CTA BAND
   ====================================================== -->
   <section class="s-ready-cta" aria-label="Get started">
-    <div class="container max-w-7xl mx-auto px-4">
-      <div class="ready-cta__inner">
-
-        <div class="ready-cta__stats">
-          <div class="ready-cta__stat">
-            <span class="ready-cta__stat-num">400+</span>
-            <span class="ready-cta__stat-label">Five-Star Reviews</span>
-          </div>
-          <div class="ready-cta__divider" aria-hidden="true"></div>
-          <div class="ready-cta__stat">
-            <span class="ready-cta__stat-num">$0</span>
-            <span class="ready-cta__stat-label">Cost to You</span>
-          </div>
-          <div class="ready-cta__divider" aria-hidden="true"></div>
-          <div class="ready-cta__stat">
-            <span class="ready-cta__stat-num">100%</span>
-            <span class="ready-cta__stat-label">Independent Agents</span>
-          </div>
-        </div>
-
-        <div class="ready-cta__content">
-          <h2 class="ready-cta__heading">Ready to Find the Right Plan?</h2>
-          <p class="ready-cta__sub">Our licensed specialists are here to guide you — no pressure, no cost, no confusion.</p>
-          <a href="#contact" class="btn btn--primary">Schedule a Free Consultation</a>
-        </div>
-
+    <div class="container max-w-8xl mx-auto px-4">
+      <div class="ready-cta__content ready-cta__content--center">
+        <h2 class="ready-cta__heading">Ready to Find the Right Plan?</h2>
+        <p class="ready-cta__sub">Our licensed specialists are here to guide you — no pressure, no cost, no confusion.</p>
+        <a href="index.html#contact" class="btn btn--primary">Call Us :  985-282-1000</a>
       </div>
     </div>
   </section>
@@ -845,76 +806,84 @@
        FOOTER
   ====================================================== -->
   <footer class="site-footer" role="contentinfo">
-    <div class="container max-w-7xl mx-auto px-4">
+    <div class="container max-w-8xl mx-auto px-4">
 
-      <div class="footer__grid">
+      <div class="footer__grid footer__grid--with-map">
         <div class="footer__brand">
           <img
-            src="assets/brand/logo.png"
-            alt="CgHealth Holistic Wellness Solutions"
+            src="assets/brand/logo.jpg"
+            alt="Cedar Grove Senior Health"
             class="footer__logo-img">
           <p class="footer__tagline">&ldquo;Solutions You Can Count On&rdquo;</p>
-          <address class="footer__address" aria-label="Office address">
-            Covington, LA 70433<br>
-            <a href="tel:9852821000">(985) 000-0000</a>
+          <address class="footer__contact" aria-label="Contact information">
+            <ul class="footer__contact-list" role="list">
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="sr-only">Primary Phone: </span>
+                <a href="tel:9852821000">(985) 282-1000</a></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span class="sr-only">Fax: </span>
+                <span>(985) 951-2048</span></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="sr-only">Email: </span>
+                <a href="mailto:info@reply.cedargrovesolutiongroup.com">info@reply.cedargrovesolutiongroup.com</a></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="sr-only">Address: </span>
+                <span>406 N. Florida Street, Suite 1<br>Covington, LA 70433</span></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg><span class="sr-only">Facebook: </span>
+                <a href="https://www.facebook.com/cedargroveseniorhealthsolutions/"
+                   target="_blank" rel="noopener noreferrer">cedargroveseniorhealthsolutions</a></li>
+            </ul>
           </address>
+
         </div>
 
         <nav class="footer__nav" aria-label="Coverage types">
           <h4 class="footer__nav-title">Coverage</h4>
           <ul role="list">
-            <li><a href="#services">Original Medicare</a></li>
-            <li><a href="#services">Medicare Supplement</a></li>
-            <li><a href="#services">Medicare Advantage</a></li>
-            <li><a href="#services">Prescription Drug Plans</a></li>
-            <li><a href="#services">Dental / Vision / Hearing</a></li>
-            <li><a href="#services">Hospital Indemnity</a></li>
+            <li><a href="index.html#services">Original Medicare</a></li>
+            <li><a href="index.html#services">Medicare Supplement</a></li>
+            <li><a href="index.html#services">Medicare Advantage</a></li>
+            <li><a href="index.html#services">Prescription Drug Plans</a></li>
+            <li><a href="index.html#services">Dental / Vision / Hearing</a></li>
+            <li><a href="index.html#services">Hospital Indemnity</a></li>
           </ul>
         </nav>
 
-        <nav class="footer__nav" aria-label="Tools and resources">
-          <h4 class="footer__nav-title">Tools &amp; Resources</h4>
-          <ul role="list">
-            <li><a href="#calculators">Calculator Library</a></li>
-            <li><a href="#webinars">Free Webinars</a></li>
-            <li><a href="#webinars">Webinar Calendar</a></li>
-            <li><a href="#webinars">24-Hour Reminder</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </nav>
+
 
         <nav class="footer__nav" aria-label="Company">
           <h4 class="footer__nav-title">Company</h4>
           <ul role="list">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
             <li><a href="#" aria-label="Privacy Policy (placeholder link)">Privacy Policy</a></li>
             <li><a href="#" aria-label="Terms and Conditions (placeholder link)">Terms &amp; Conditions</a></li>
           </ul>
         </nav>
+        <div class="footer__map">
+          <iframe
+            title="Map to CG Healthcare Group — 406 N. Florida Street, Suite 1, Covington, LA 70433"
+            src="https://maps.google.com/maps?q=406%20N.%20Florida%20Street%2C%20Suite%201%2C%20Covington%2C%20LA%2070433&z=15&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
       </div>
 
       <div class="footer__disclaimer">
-        <p><strong>Important Disclosure:</strong> We do not offer every plan available in
-          your area. Please contact
+
+        <p>CG Healthcare Group is a licensed independent insurance agency. Use of this site does not obligate
+          you to enroll in any plan.</p>
+        <p>Please contact
           <a href="https://www.medicare.gov" target="_blank" rel="noopener noreferrer">Medicare.gov</a>,
           call <strong>1-800-MEDICARE</strong> (1-800-633-4227), or contact your local State Health
           Insurance Assistance Program (SHIP) to get information on all of your options.</p>
-        <p>CG Healthcare Group is a licensed independent insurance agency. We are compensated by
-          insurance carriers for plans we help you enroll in. Use of this site does not obligate
-          you to enroll in any plan.</p>
       </div>
 
-      <div class="footer__bottom">
+      <div class="footer__bottom text-center">
         <p>&copy; 2026 CG Healthcare Group. All rights reserved.</p>
-        <p class="footer__proto-note">
-          <strong>Prototype / Internal Review Only</strong> &mdash;
-          Contact details are placeholders. Not for public distribution.
-        </p>
       </div>
 
     </div>
+
   </footer>
 
   <script>
@@ -1274,6 +1243,128 @@
   }
 
   document.querySelectorAll('.mc-carousel').forEach(makeMultiCarousel);
+
+  /* ── Reviews coverflow: center card larger, neighbors smaller ── */
+  (function () {
+    var root = document.querySelector('.reviews-carousel');
+    if (!root) return;
+
+    var viewport = root.querySelector('.reviews-carousel__viewport');
+    var track    = root.querySelector('.reviews-carousel__track');
+    var prevBtn  = root.querySelector('.reviews-carousel__btn--prev');
+    var nextBtn  = root.querySelector('.reviews-carousel__btn--next');
+    var dotsWrap = root.querySelector('.reviews-carousel__dots');
+    var status   = root.querySelector('.reviews-carousel__status');
+    var cards    = Array.from(track.children);
+    var total    = cards.length;
+    var index    = 0;
+    var reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    cards.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'reviews-carousel__dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Show review ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); });
+      dotsWrap.appendChild(dot);
+    });
+    var dots = Array.from(dotsWrap.children);
+
+    function delta(i) {
+      var d = i - index;
+      if (d > total / 2) d -= total;
+      if (d < -total / 2) d += total;
+      return d;
+    }
+
+    function layout() {
+      var wide = viewport.getBoundingClientRect().width >= 760;
+      var cardW = wide ? Math.min(380, viewport.clientWidth * 0.34) : Math.min(420, viewport.clientWidth - 56);
+      var step = wide ? cardW * 0.94 : cardW * 1.12;
+
+      cards.forEach(function (card) { card.style.width = cardW + 'px'; });
+
+      var tallest = 0;
+      cards.forEach(function (card, i) {
+        var d = delta(i);
+        var abs = Math.abs(d);
+        var center = abs === 0;
+        var side = abs === 1;
+        var scale = center ? 1.08 : 0.84;
+        var x = d * step;
+        var showSide = side && wide;
+        card.classList.toggle('is-center', center);
+        card.classList.toggle('is-side', showSide);
+        card.style.opacity = center || showSide ? '1' : '0';
+        card.style.zIndex = String(10 - abs);
+        card.style.pointerEvents = center || showSide ? 'auto' : 'none';
+        card.style.transform = 'translate(-50%, -50%) translateX(' + x + 'px) scale(' + scale + ')';
+        card.setAttribute('aria-hidden', center ? 'false' : 'true');
+        var h = card.offsetHeight * scale;
+        if ((center || side) && h > tallest) tallest = h;
+      });
+
+      track.style.height = Math.ceil(tallest + 48) + 'px';
+
+      dots.forEach(function (dot, i) {
+        var on = i === index;
+        dot.setAttribute('aria-selected', on ? 'true' : 'false');
+        dot.tabIndex = on ? 0 : -1;
+      });
+
+      var author = cards[index].querySelector('.review-card__author');
+      if (status && author) {
+        status.textContent = 'Review ' + (index + 1) + ' of ' + total + ', ' + author.textContent.replace(/\s+/g, ' ').trim();
+      }
+    }
+
+    function goTo(n) {
+      index = ((n % total) + total) % total;
+      layout();
+    }
+
+    prevBtn.addEventListener('click', function () { goTo(index - 1); });
+    nextBtn.addEventListener('click', function () { goTo(index + 1); });
+
+    cards.forEach(function (card, i) {
+      card.addEventListener('click', function () {
+        if (swiped) { swiped = false; return; }
+        if (delta(i) !== 0) goTo(i);
+      });
+    });
+
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(index - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+    });
+
+    var startX = 0;
+    var swiped = false;
+    viewport.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      startX = e.clientX;
+      swiped = false;
+    });
+    viewport.addEventListener('pointerup', function (e) {
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) < 40) return;
+      swiped = true;
+      goTo(dx < 0 ? index + 1 : index - 1);
+    });
+
+    if (reduced) {
+      cards.forEach(function (card) { card.style.transition = 'none'; });
+    }
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(layout, 120);
+    }, { passive: true });
+
+    layout();
+  }());
   </script>
 </body>
 </html>

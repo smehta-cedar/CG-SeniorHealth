@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the owners and licensed independent Medicare agents of CG Healthcare Group in Covington, Louisiana.">
+  <title>Our Team | CG Healthcare Group</title>
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* Tailwind colors read the CSS tokens in styles.css :root —
+       the color scheme lives there (ref: assets/brand/Gradient.jpg). */
+    const token = (name) => `rgb(var(--rgb-${name}) / <alpha-value>)`;
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal:            token('teal'),
+              'teal-green':    token('teal-green'),
+              mid:             token('mid'),
+              'lime-green':    token('lime-green'),
+              lime:            token('lime'),
+              'teal-deep':     token('teal-deep'),
+              'lime-deep':     token('lime-deep'),
+              'teal-dark':  token('teal-dark'),
+              'lime-dark':  token('lime-dark'),
+              'lime-light':    token('lime-light'),
+              'teal-tint':     token('teal-tint'),
+              'lime-tint':     token('lime-tint'),
+            },
+            ink: {
+              DEFAULT: token('ink'),
+              soft:    token('ink-soft'),
+              muted:   token('ink-muted'),
+            },
+            line: token('line'),
+          },
+          maxWidth: {
+            '8xl': 'var(--container-max)',   /* 80% of the page */
+          },
+          backgroundImage: {
+            'grad-brand': 'var(--grad-brand)',
+            'grad-deep':  'var(--grad-deep)',
+            'grad-dark':  'var(--grad-dark)',
+            'grad-soft':  'var(--grad-soft)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body >
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ======================================================
+       SITE HEADER / NAVIGATION
+  ====================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container max-w-8xl mx-auto px-4">
+      <nav class="nav " aria-label="Main navigation">
+
+        <a href="index.html" class="nav__logo" aria-label="CgHealth — return to home">
+          <!-- White logo over the hero; swaps to logo.jpg once the bar turns white -->
+          <img
+            src="assets/brand/logo-fullclear.png"
+            alt="Cedar Grove Senior Health"
+            class="nav__logo-img nav__logo-img--top">
+          <img
+            src="assets/brand/logo.jpg"
+            alt=""
+            aria-hidden="true"
+            class="nav__logo-img nav__logo-img--scrolled">
+        </a>
+
+        <!-- CSS-only mobile toggle via checkbox sibling selector -->
+        <input type="checkbox" id="nav-toggle" class="nav__checkbox" aria-hidden="true">
+        <label for="nav-toggle" class="nav__hamburger" aria-label="Open navigation menu" aria-controls="nav-drawer">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+
+        <label for="nav-toggle" class="nav__backdrop" aria-hidden="true" tabindex="-1"></label>
+
+        <div class="nav__drawer" id="nav-drawer">
+          <div class="nav__drawer-top">
+            <img
+              src="assets/brand/logo.jpg"
+              alt=""
+              class="nav__drawer-logo"
+              aria-hidden="true">
+            <p class="nav__drawer-tagline">Solutions You Can Count On</p>
+          </div>
+
+          <ul class="nav__links" role="list">
+            <li><a href="index.html#home"        class="nav__link">Home</a></li>
+            <li><a href="team.html"    class="nav__link" aria-current="page">Our Team</a></li>  
+            <li><a href="index.html#services"     class="nav__link ">Medicare Info</a></li>
+            <li><a href="index.html#contact"     class="nav__link ">Contact Us</a></li>
+             <li><a href="https://event.cedargrovesolutiongroup.com/"    class="nav__link nav__link--cta">Webinars</a></li>
+          </ul>
+
+          <div class="nav__drawer-footer">
+            <a href="tel:9852821000" class="nav__phone">
+              <svg class="nav__phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="nav__phone-text">
+                <span class="nav__phone-label">Call us</span>
+                <span class="nav__phone-number">(985) 282-1000</span>
+              </span>
+            </a>
+
+            <div class="nav__social" aria-label="Social media">
+              <a
+                href="https://facebook.com/cedargrovemedins"
+                class="nav__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                </svg>
+              </a>
+              <a
+                href="index.html#contact"
+                class="nav__social-link"
+                aria-label="Get in touch">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================
+       MAIN CONTENT
+  ====================================================== -->
+  <main id="main">
+
+    <!-- ===================================================
+         PAGE BANNER
+    =================================================== -->
+    <section class="s-page-banner" aria-labelledby="team-heading">
+      <div class="container max-w-8xl mx-auto px-2">
+       
+        <h1 id="team-heading" class="page-banner__heading">Meet Our Team</h1>
+       
+             </div>
+    </section>
+
+    <!-- ===================================================
+         OWNERS
+    =================================================== -->
+    <section id="owners" class="s-team" aria-labelledby="owners-heading">
+      <div class="container max-w-8xl mx-auto px-4">
+        <h2 id="owners-heading" class="visually-hidden">Owners</h2>
+        <div class="team__owners">
+          <article class="team-card team-card--owner">
+            <div class="team-card__photo">
+              <img src="assets/team/MW.jpg" alt="Michael Wahl" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Michael Wahl</h3>
+              <p class="team-card__role">Owner</p>
+            </div>
+          </article>
+          <article class="team-card team-card--owner team-card--lead">
+            <div class="team-card__photo">
+              <img src="assets/team/LO.png" alt="Luke Ordogne" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Luke Ordogne</h3>
+              <p class="team-card__role">Owner</p>
+            </div>
+          </article>
+          <article class="team-card team-card--owner">
+            <div class="team-card__photo">
+              <img src="assets/team/JM.JPG" alt="John Montelepre" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">John Montelepre</h3>
+              <p class="team-card__role">Owner</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         AGENTS
+    =================================================== -->
+    <section id="agents" class="s-team s-team--alt" aria-labelledby="agents-heading">
+      <div class="container max-w-8xl mx-auto px-4">
+        <header class="section-header section-header--light">
+          <h2 id="agents-heading" class="section-heading section-heading--light">Our Agents</h2>
+          <p class="section-sub section-sub--light">The People Behind Your Coverage</p>
+        </header>
+
+        <div class="team__agents">
+
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/DM.png" alt="Doug McRae" loading="lazy" width="400" height="500">
+             
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Doug McRae</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/BW.jpg" alt="Brandon Wahl" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Brandon Wahl</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/DJ.png" alt="Daniel Wanner" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Daniel Wanner</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/JC.png" alt="Joey Carbo" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Joey Carbo</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/RF.png" alt="Robert Flatt" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Robert Flatt</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/AS.jpg" alt="Austin Scott" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Austin Scott</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/SP.jpg" alt="Scott Poulin" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Scott Poulin</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/RB.jpg" alt="Raymond Billings" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Raymond Billings</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <div class="team-card__photo">
+              <img src="assets/team/MT.jpg" alt="Matthew Tillman" loading="lazy" width="400" height="500">
+            </div>
+            <div class="team-card__body">
+              <h3 class="team-card__name">Matthew Tillman</h3>
+              <p class="team-card__role">Licensed Agent</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       READY CTA BAND
+  ====================================================== -->
+  <section class="s-ready-cta" aria-label="Get started">
+    <div class="container max-w-8xl mx-auto px-4">
+      <div class="ready-cta__content ready-cta__content--center">
+        <h2 class="ready-cta__heading">Ready to Find the Right Plan?</h2>
+        <p class="ready-cta__sub">Our licensed specialists are here to guide you — no pressure, no cost, no confusion.</p>
+        <a href="index.html#contact" class="btn btn--primary">Schedule a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container max-w-8xl mx-auto px-4">
+
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img
+            src="assets/brand/logo.jpg"
+            alt="Cedar Grove Senior Health"
+            class="footer__logo-img">
+          <p class="footer__tagline">&ldquo;Solutions You Can Count On&rdquo;</p>
+          <address class="footer__contact" aria-label="Contact information">
+            <ul class="footer__contact-list" role="list">
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="sr-only">Primary Phone: </span>
+                <a href="tel:9852821000">(985) 282-1000</a></li>
+        
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span class="sr-only">Fax: </span>
+                <span>(985) 951-2048</span></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="sr-only">Address: </span>
+                <span>406 N. Florida Street, Suite 1<br>Covington, LA 70433</span></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg><span class="sr-only">Facebook: </span>
+                <a href="https://www.facebook.com/cedargroveseniorhealthsolutions/"
+                   target="_blank" rel="noopener noreferrer">cedargroveseniorhealthsolutions</a></li>
+            </ul>
+          </address>
+        </div>
+
+        <nav class="footer__nav" aria-label="Coverage types">
+          <h4 class="footer__nav-title">Coverage</h4>
+          <ul role="list">
+            <li><a href="index.html#services">Original Medicare</a></li>
+            <li><a href="index.html#services">Medicare Supplement</a></li>
+            <li><a href="index.html#services">Medicare Advantage</a></li>
+            <li><a href="index.html#services">Prescription Drug Plans</a></li>
+            <li><a href="index.html#services">Dental / Vision / Hearing</a></li>
+            <li><a href="index.html#services">Hospital Indemnity</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__nav" aria-label="Tools and resources">
+          <h4 class="footer__nav-title">Tools &amp; Resources</h4>
+          <ul role="list">
+            <li><a href="index.html#calculators">Calculator Library</a></li>
+            <li><a href="index.html#webinars">Free Webinars</a></li>
+            <li><a href="index.html#webinars">Webinar Calendar</a></li>
+            <li><a href="index.html#webinars">24-Hour Reminder</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__nav" aria-label="Company">
+          <h4 class="footer__nav-title">Company</h4>
+          <ul role="list">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="#" aria-label="Privacy Policy (placeholder link)">Privacy Policy</a></li>
+            <li><a href="#" aria-label="Terms and Conditions (placeholder link)">Terms &amp; Conditions</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer__disclaimer">
+
+        <p>CG Healthcare Group is a licensed independent insurance agency. Use of this site does not obligate
+          you to enroll in any plan.</p>
+        <p>Please contact
+          <a href="https://www.medicare.gov" target="_blank" rel="noopener noreferrer">Medicare.gov</a>,
+          call <strong>1-800-MEDICARE</strong> (1-800-633-4227), or contact your local State Health
+          Insurance Assistance Program (SHIP) to get information on all of your options.</p>
+      </div>
+
+      <div class="footer__bottom text-center">
+        <p>&copy; 2026 CG Healthcare Group. All rights reserved.</p>
+      </div>
+
+    </div>
+    <div class="footer__map">
+      <iframe
+        title="Map to CG Healthcare Group — 406 N. Florida Street, Suite 1, Covington, LA 70433"
+        src="https://maps.google.com/maps?q=406%20N.%20Florida%20Street%2C%20Suite%201%2C%20Covington%2C%20LA%2070433&z=15&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+  </footer>
+
+  <script>
+  /* ── Navbar scroll behaviour ── */
+  (function () {
+    var header    = document.querySelector('.site-header');
+    var THRESHOLD = 60;
+    function updateNav() {
+      header.classList.toggle('site-header--scrolled', window.scrollY > THRESHOLD);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+  }());
+
+  /* ── Mobile drawer: close on link tap / Escape ── */
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var drawer = document.getElementById('nav-drawer');
+    var hamburger = document.querySelector('.nav__hamburger');
+    if (!toggle || !drawer) return;
+
+    function setOpen(open) {
+      toggle.checked = open;
+      if (hamburger) {
+        hamburger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    }
+
+    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.checked) setOpen(false);
+    });
+
+    toggle.addEventListener('change', function () {
+      setOpen(toggle.checked);
+    });
+  }());
+  </script>
+</body>
+</html>
