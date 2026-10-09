@@ -282,7 +282,7 @@
           <p>Have questions about the process? Talk to one of our agents &mdash;
             we&rsquo;ll walk you through every step, from your first question to your
             final plan.</p>
-          <a href="tel:9852821000" class="btn btn--primary" style="margin-top:1rem; display:inline-block;">Call Us :  985-282-1000</a>
+          <a href="team.html" class="btn btn--primary bg-white text-black" style="margin-top:1rem; display:inline-block;">Meet Our Team</a>
         </div>
     </section>
 
@@ -311,7 +311,7 @@
                 <p class="service-card__desc">Parts A &amp; B form the foundation of Medicare coverage
                   &mdash; hospital care, doctor visits, and outpatient services. We help you understand
                   exactly what&rsquo;s covered and where the gaps are.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
               <article class="service-card">
@@ -320,7 +320,7 @@
                 <p class="service-card__desc">Also called Medigap, these plans cover copayments,
                   coinsurance, and deductibles that Original Medicare leaves behind. We compare
                   plans across carriers to find your best value.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
               <article class="service-card">
@@ -329,7 +329,7 @@
                 <p class="service-card__desc">All-in-one HMO and PPO plans from private insurers
                   that often bundle dental, vision, and drug coverage. We help you weigh network
                   flexibility against added benefits.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
               <article class="service-card">
@@ -338,7 +338,7 @@
                 <p class="service-card__desc">Medicare Part D helps cover prescription medication
                   costs. We review your specific drug list to identify the plan with the lowest
                   overall out-of-pocket cost for you personally.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
               <article class="service-card">
@@ -347,7 +347,7 @@
                 <p class="service-card__desc">Original Medicare doesn&rsquo;t cover most routine
                   dental, vision, or hearing care. We connect you with affordable supplemental
                   plans that fill these important gaps.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
               <article class="service-card">
@@ -356,7 +356,7 @@
                 <p class="service-card__desc">A critical illness diagnosis brings costs Medicare
                   may not cover. These specialized plans pay a direct benefit to you upon
                   diagnosis &mdash; for treatment, recovery, or any need.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
               <article class="service-card">
@@ -365,7 +365,7 @@
                 <p class="service-card__desc">Receive a cash benefit for each day spent in the
                   hospital, regardless of other coverage. Ideal for covering Medicare Part A
                   deductibles and daily coinsurance costs that add up quickly.</p>
-                <a href="#consultation" class="service-card__link">Learn More &#8594;</a>
+                 
               </article>
 
             </div>
@@ -451,9 +451,9 @@
     <section id="reviews" class="s-reviews" aria-labelledby="reviews-heading">
       <div class="container max-w-8xl mx-auto px-4">
         <header class="section-header">
-          <div class="reviews__aggregate" role="img" aria-label="4.9 out of 5 stars from over 400 Google reviews. A plus Better Business Bureau rating.">
+          <div class="reviews__aggregate" role="img" aria-label="4.9 out of 5 stars from over 450 Google reviews. A plus Better Business Bureau rating.">
             <span class="reviews__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="reviews__count">4.9 out of 5 &middot; 400+ Google reviews</span>
+            <span class="reviews__count">4.9 out of 5  &middot;  450+ Google reviews</span>
             <span class="reviews__badge">A+ BBB Accredited</span>
           </div>
           <h2 id="reviews-heading" class="section-heading">What Our Clients Say</h2>
@@ -1182,8 +1182,15 @@
 
     function layout() {
       var wide = viewport.getBoundingClientRect().width >= 760;
-      var cardW = wide ? Math.min(380, viewport.clientWidth * 0.34) : Math.min(420, viewport.clientWidth - 56);
-      var step = wide ? cardW * 0.94 : cardW * 1.12;
+      var gap = 40;
+      var centerScale = 1;
+      var sideScale = 0.92;
+      var cardW = wide
+        ? Math.min(340, (viewport.clientWidth - gap * 2 - 24) / (sideScale * 2 + centerScale))
+        : Math.min(420, viewport.clientWidth - 56);
+      var step = wide
+        ? cardW * (centerScale + sideScale) / 2 + gap
+        : cardW + gap;
 
       cards.forEach(function (card) { card.style.width = cardW + 'px'; });
 
@@ -1193,7 +1200,7 @@
         var abs = Math.abs(d);
         var center = abs === 0;
         var side = abs === 1;
-        var scale = center ? 1.08 : 0.84;
+        var scale = center ? centerScale : sideScale;
         var x = d * step;
         var showSide = side && wide;
         card.classList.toggle('is-center', center);
