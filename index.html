@@ -451,10 +451,19 @@
     <section id="reviews" class="s-reviews" aria-labelledby="reviews-heading">
       <div class="container max-w-8xl mx-auto px-4">
         <header class="section-header">
-          <div class="reviews__aggregate" role="img" aria-label="4.9 out of 5 stars from over 450 Google reviews. A plus Better Business Bureau rating.">
-            <span class="reviews__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span class="reviews__count">4.9 out of 5  &middot;  450+ Google reviews</span>
-            <span class="reviews__badge">A+ BBB Accredited</span>
+          <div class="reviews__aggregate">
+            <div class="reviews__score" role="img" aria-label="4.9 out of 5 stars from over 450 Google reviews.">
+              <span class="reviews__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="reviews__count">4.9 out of 5  &middot;  450+ Google reviews</span>
+            </div>
+            <a class="reviews__badge"
+               href="https://www.bbb.org/us/la/covington/profile/health-insurance/cedar-grove-senior-health-solutions-0985-90045862"
+               target="_blank"
+               rel="noopener noreferrer">
+              A+ BBB Accredited
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span class="sr-only">(opens BBB profile in a new tab)</span>
+            </a>
           </div>
           <h2 id="reviews-heading" class="section-heading">What Our Clients Say</h2>
           
@@ -1154,7 +1163,7 @@
 
   document.querySelectorAll('.mc-carousel').forEach(makeMultiCarousel);
 
-  /* ── Reviews coverflow: center card larger, neighbors smaller ── */
+  /* ── Reviews: three full-width cards at a time ── */
   (function () {
     var root = document.querySelector('.reviews-carousel');
     if (!root) return;
@@ -1181,6 +1190,10 @@
     });
     var dots = Array.from(dotsWrap.children);
 
+    function wrapIndex(n) {
+      return ((n % total) + total) % total;
+    }
+
     function delta(i) {
       var d = i - index;
       if (d > total / 2) d -= total;
@@ -1189,40 +1202,36 @@
     }
 
     function layout() {
-      var wide = viewport.getBoundingClientRect().width >= 760;
-      var gap = 40;
-      var centerScale = 1;
-      var sideScale = 0.92;
-      var cardW = wide
-        ? Math.min(340, (viewport.clientWidth - gap * 2 - 24) / (sideScale * 2 + centerScale))
-        : Math.min(420, viewport.clientWidth - 56);
-      var step = wide
-        ? cardW * (centerScale + sideScale) / 2 + gap
-        : cardW + gap;
+      var count = viewport.getBoundingClientRect().width >= 860 ? 3 : 1;
+      var gap = 24;
+      var cardW = (viewport.clientWidth - gap * (count - 1)) / count;
+      var offsets = count === 3 ? [-1, 0, 1] : [0];
 
-      cards.forEach(function (card) { card.style.width = cardW + 'px'; });
-
-      var tallest = 0;
-      cards.forEach(function (card, i) {
-        var d = delta(i);
-        var abs = Math.abs(d);
-        var center = abs === 0;
-        var side = abs === 1;
-        var scale = center ? centerScale : sideScale;
-        var x = d * step;
-        var showSide = side && wide;
-        card.classList.toggle('is-center', center);
-        card.classList.toggle('is-side', showSide);
-        card.style.opacity = center || showSide ? '1' : '0';
-        card.style.zIndex = String(10 - abs);
-        card.style.pointerEvents = center || showSide ? 'auto' : 'none';
-        card.style.transform = 'translate(-50%, -50%) translateX(' + x + 'px) scale(' + scale + ')';
-        card.setAttribute('aria-hidden', center ? 'false' : 'true');
-        var h = card.offsetHeight * scale;
-        if ((center || side) && h > tallest) tallest = h;
+      cards.forEach(function (card) {
+        card.style.width = cardW + 'px';
+        card.style.opacity = '0';
+        card.style.pointerEvents = 'none';
+        card.style.transform = 'none';
+        card.classList.remove('is-center', 'is-side');
+        card.setAttribute('aria-hidden', 'true');
       });
 
-      track.style.height = Math.ceil(tallest + 48) + 'px';
+      var visible = offsets.map(function (offset, slot) {
+        var card = cards[wrapIndex(index + offset)];
+        card.classList.toggle('is-center', offset === 0);
+        card.classList.toggle('is-side', offset !== 0);
+        card.style.opacity = '1';
+        card.style.pointerEvents = 'auto';
+        card.style.transform = 'translateX(' + (slot * (cardW + gap)) + 'px)';
+        card.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+        return card;
+      });
+
+      var tallest = 0;
+      visible.forEach(function (card) {
+        if (card.offsetHeight > tallest) tallest = card.offsetHeight;
+      });
+      track.style.height = tallest + 'px';
 
       dots.forEach(function (dot, i) {
         var on = i === index;
@@ -1237,7 +1246,7 @@
     }
 
     function goTo(n) {
-      index = ((n % total) + total) % total;
+      index = wrapIndex(n);
       layout();
     }
 
@@ -1247,7 +1256,8 @@
     cards.forEach(function (card, i) {
       card.addEventListener('click', function () {
         if (swiped) { swiped = false; return; }
-        if (delta(i) !== 0) goTo(i);
+        var d = delta(i);
+        if (d !== 0 && Math.abs(d) === 1) goTo(i);
       });
     });
 

@@ -1870,6 +1870,13 @@ section[id],
   margin-bottom: var(--sp-4);
 }
 
+.reviews__score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
 .reviews__stars,
 .review-card__stars {
   background-image: linear-gradient(
@@ -1903,7 +1910,9 @@ section[id],
 }
 
 .reviews__badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   margin-top: var(--sp-1);
   padding: 0.3rem 0.75rem;
   font-size: var(--text-sm);
@@ -1912,56 +1921,59 @@ section[id],
   color: var(--c-teal-deep);
   background: rgb(var(--rgb-lime-light) / 0.7);
   border-radius: 999px;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.reviews__badge:hover,
+.reviews__badge:focus-visible {
+  color: var(--c-lime-deep);
+  background: var(--c-lime-light);
+  outline: 3px solid var(--c-focus);
+  outline-offset: 2px;
 }
 
 .reviews-carousel__viewport {
   overflow: hidden;
-  padding-block: var(--sp-6);
+  padding-block: var(--sp-4);
 }
 
 .reviews-carousel__track {
   position: relative;
-  height: 28rem;
 }
 
 .reviews-carousel .review-card {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(26rem, 78vw);
+  top: 0;
+  left: 0;
+  width: 100%;
   margin: 0;
+  padding: var(--sp-6);
   background: var(--c-white);
   border: 1px solid var(--c-border);
   box-shadow: 0 8px 20px rgb(0 0 0 / 0.04);
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(0.86);
+  opacity: 0;
+  pointer-events: none;
+  transform: none;
   transition:
     transform 460ms cubic-bezier(0.22, 0.8, 0.28, 1),
     opacity 460ms ease,
     box-shadow 460ms ease;
 }
 
-.reviews-carousel .review-card::before {
-  opacity: 0;
-  transition: opacity 460ms ease;
+.reviews-carousel .review-card.is-center,
+.reviews-carousel .review-card.is-side {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .reviews-carousel .review-card.is-center {
-  opacity: 1;
   box-shadow: 0 16px 40px rgb(0 0 0 / 0.1);
   border-color: transparent;
 }
 
-.reviews-carousel .review-card.is-center::before {
-  opacity: 1;
-}
-
 .reviews-carousel .review-card.is-side {
   cursor: pointer;
-}
-
-.reviews-carousel .review-card:hover {
-  transform: none;
 }
 
 .reviews-carousel__controls {
