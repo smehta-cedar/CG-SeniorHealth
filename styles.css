@@ -3166,13 +3166,21 @@ section[id],
   margin-inline: auto;
 }
 
-/* Agents */
+/* Agents / SDR / Operations — flex so a partial last row stays centred */
 .team__agents {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--sp-8);
+  --team-cols: 3;
+  --team-gap: var(--sp-8);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--team-gap);
   max-width: 64rem;
   margin-inline: auto;
+}
+
+.team__agents > .team-card {
+  flex: 0 0 calc((100% - (var(--team-cols) - 1) * var(--team-gap)) / var(--team-cols));
+  min-width: 0;
 }
 
 .team-card {
@@ -3200,18 +3208,6 @@ section[id],
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-}
-
-/* Placeholder until a photo is available */
-.team-card__initials {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-heading);
-  font-size: var(--text-4xl);
-  font-weight: 700;
-  color: var(--c-teal-deep);
 }
 
 .team-card__body {
@@ -3268,15 +3264,15 @@ section[id],
   }
 
   .team__agents {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--sp-6);
+    --team-cols: 2;
+    --team-gap: var(--sp-6);
   }
 }
 
 /* Phones: one agent card per row, same width as the owner cards */
 @media (max-width: 600px) {
   .team__agents {
-    grid-template-columns: 1fr;
+    --team-cols: 1;
     max-width: 22rem;
   }
 }
