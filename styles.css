@@ -1479,11 +1479,28 @@ section[id],
 }
 
 .approach__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: clamp(20rem, 32vw, 26rem);
   text-align: center;
   margin-top: var(--sp-12);
   padding: var(--sp-12) var(--sp-8);
   border-radius: var(--radius-lg);
-  background: var(--grad-deep);
+  background-color: rgb(var(--rgb-black));
+  background-image:
+    linear-gradient(rgb(var(--rgb-black) / 0.15) 30%, rgb(var(--rgb-black) / 0.75)),
+    url('assets/backgrounds/team-banner.jpg');
+  background-image:
+    linear-gradient(rgb(var(--rgb-black) / 0.15) 30%, rgb(var(--rgb-black) / 0.75)),
+    image-set(
+      url('assets/backgrounds/team-banner.webp') type('image/webp'),
+      url('assets/backgrounds/team-banner.jpg') type('image/jpeg')
+    );
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
   box-shadow: var(--shadow-lg);
 }
 
