@@ -67,7 +67,7 @@
     <div class="container max-w-8xl mx-auto px-4">
       <nav class="nav " aria-label="Main navigation">
 
-        <a href="#home" class="nav__logo" aria-label="CgHealth — return to home">
+        <a href="/" class="nav__logo" aria-label="CgHealth — return to home">
           <!-- White logo over the hero; swaps to logo.jpg once the bar turns white -->
           <img
             src="assets/brand/logo-fullclear.png"
@@ -97,11 +97,11 @@
               alt=""
               class="nav__drawer-logo"
               aria-hidden="true">
-            <p class="nav__drawer-tagline">Solutions You Can Count On</p>
+        
           </div>
 
           <ul class="nav__links" role="list">
-            <li><a href="#home"        class="nav__link">Home</a></li>
+            <li><a href="/"        class="nav__link">Home</a></li>
             <li><a href="team.html"    class="nav__link">Our Team</a></li>  
             <li><a href="#services"     class="nav__link ">Medicare Info</a></li>
             <li><a href="#contact"     class="nav__link ">Contact Us</a></li>
@@ -161,31 +161,33 @@
 
           <div class="carousel__slide" aria-roledescription="slide" aria-label="Slide 1 of 3">
             <picture>
-              <source media="(max-width: 768px)" srcset="assets/hero/home1-mobile.webp">
+              <source media="(max-width: 768px)" srcset="assets/hero/hero-mobile.webp">
               <img
-                src="assets/hero/home1.webp"
+                src="assets/hero/hero.webp"
                 alt="A licensed Medicare specialist meeting with a client at Cedar Grove Senior Health Solutions"
                 class="carousel__img"
                 width="1600"
-                height="900">
-            </picture>
+                height="1067">
+            </picture> 
             <div class="carousel__overlay" aria-hidden="true"></div>
-            <div class="carousel__text">
-              <h1 class="carousel__heading">Solutions<br>You Can<br>Count On.</h1>
-              <p class="carousel__sub">We work for <strong>you</strong> &mdash; not the insurance companies.</p>
-              <a href="team.html" class="btn btn--primary carousel__cta">Meet Our Team</a>
+
+                <div class="carousel__text">
+              <h1 class="carousel__heading">Your Partner<br>in Medicare.<br>For Life.</h1>
+              <p class="carousel__sub">From enrollment to annual reviews, we&rsquo;re with you every step of the way.</p>
+              <a href="#reviews" class="btn btn--primary carousel__cta">See What Our Clients Say</a>
             </div>
+           
           </div>
 
           <div class="carousel__slide" aria-roledescription="slide" aria-label="Slide 2 of 3">
             <picture>
-              <source media="(max-width: 768px)" srcset="assets/hero/home2-mobile.webp">
+              <source media="(max-width: 768px)" srcset="assets/hero/hero2-mobile.webp">
               <img
-                src="assets/hero/home2.webp"
+                src="assets/hero/hero2.webp"
                 alt="Happy retirees who found the right Medicare coverage through Cedar Grove Senior Health Solutions"
                 class="carousel__img"
                 width="1600"
-                height="900">
+                height="1260">
             </picture>
             <div class="carousel__overlay" aria-hidden="true"></div>
             <div class="carousel__text">
@@ -197,20 +199,21 @@
 
           <div class="carousel__slide" aria-roledescription="slide" aria-label="Slide 3 of 3">
             <picture>
-              <source media="(max-width: 768px)" srcset="assets/hero/home3-mobile.webp">
+              <source media="(max-width: 768px)" srcset="assets/hero/hero3-mobile.webp">
               <img
-                src="assets/hero/home3.webp"
+                src="assets/hero/hero3.webp"
                 alt="Cedar Grove Senior Health Solutions team — independent Medicare agents serving Louisiana"
                 class="carousel__img"
-                width="1536"
-                height="1024">
+                width="1600"
+                height="1067">
             </picture>
             <div class="carousel__overlay" aria-hidden="true"></div>
-            <div class="carousel__text">
-              <h1 class="carousel__heading">Your Partner<br>in Medicare.<br>For Life.</h1>
-              <p class="carousel__sub">From enrollment to annual reviews, we&rsquo;re with you every step of the way.</p>
-              <a href="#reviews" class="btn btn--primary carousel__cta">See What Our Clients Say</a>
+                        <div class="carousel__text">
+              <h1 class="carousel__heading">Solutions<br>You Can<br>Count On.</h1>
+              <p class="carousel__sub">We work for <strong>you</strong> &mdash; not the insurance companies.</p>
+              <a href="team.html" class="btn btn--primary carousel__cta">Meet Our Team</a>
             </div>
+
           </div>
 
         </div><!-- /.carousel__track -->
@@ -230,6 +233,60 @@
 
       </div><!-- /.hero-carousel -->
     </section>
+
+    <!-- ===================================================
+         CARRIERS — auto-scrolling logo strip
+         Logo files live in assets/carriers/. The set is cloned once by JS so
+         the loop stays seamless; only the first set is read
+         by screen readers.
+    =================================================== -->
+    <section class="s-carriers" aria-labelledby="carriers-heading">
+      <h2 id="carriers-heading" class="carriers__label">Carriers We Work With</h2>
+      <div class="carriers__viewport">
+        <ul class="carriers__track" role="list">
+          <li class="carriers__item"><img src="assets/carriers/humana.webp" alt="Humana" class="carriers__logo" width="158" height="33" style="--w: 158px"></li>
+          <li class="carriers__item"><img src="assets/carriers/aetna.webp" alt="Aetna" class="carriers__logo" width="165" height="31" style="--w: 165px"></li>
+          <li class="carriers__item"><img src="assets/carriers/louisiana-blue.webp" alt="Louisiana Blue (Blue Cross and Blue Shield of Louisiana)" class="carriers__logo" width="218" height="24" style="--w: 218px"></li>
+          <li class="carriers__item"><img src="assets/carriers/unitedhealthcare.webp" alt="UnitedHealthcare" class="carriers__logo" width="129" height="40" style="--w: 129px"></li>
+          <li class="carriers__item"><img src="assets/carriers/wellcare.webp" alt="Wellcare" class="carriers__logo" width="157" height="33" style="--w: 157px"></li>
+          <li class="carriers__item"><img src="assets/carriers/devoted.webp" alt="Devoted Health" class="carriers__logo" width="144" height="36" style="--w: 144px"></li>
+          <li class="carriers__item"><img src="assets/carriers/cigna-healthspring.webp" alt="The Cigna Group" class="carriers__logo" width="119" height="44" style="--w: 119px"></li>
+          <li class="carriers__item"><img src="assets/carriers/mutual-of-omaha.webp" alt="Mutual of Omaha" class="carriers__logo" width="171" height="30" style="--w: 171px"></li>
+          <li class="carriers__item"><img src="assets/carriers/americo.webp" alt="Americo" class="carriers__logo" width="162" height="32" style="--w: 162px"></li>
+          <li class="carriers__item"><img src="assets/carriers/aetna-senior-supplemental.webp" alt="Aetna Senior Supplemental Insurance" class="carriers__logo" width="163" height="32" style="--w: 163px"></li>
+          <li class="carriers__item"><img src="assets/carriers/american-amicable.webp" alt="American Amicable Group" class="carriers__logo" width="131" height="40" style="--w: 131px"></li>
+          <li class="carriers__item"><img src="assets/carriers/athene.webp" alt="Athene" class="carriers__logo" width="176" height="29" style="--w: 176px"></li>
+          <li class="carriers__item"><img src="assets/carriers/sammons-north-american.webp" alt="North American Company (Sammons Financial)" class="carriers__logo" width="151" height="34" style="--w: 151px"></li>
+          <li class="carriers__item"><img src="assets/carriers/sagicor.webp" alt="Sagicor" class="carriers__logo" width="143" height="36" style="--w: 143px"></li>
+        </ul>
+      </div>
+    </section>
+    <script>
+      /* Build the looping track: clone the set so the -50% marquee animation
+         loops seamlessly, then swap any logo that fails to load for its name. */
+      (function () {
+        var track = document.querySelector('.carriers__track');
+        if (!track) return;
+        var originals = Array.prototype.slice.call(track.children);
+        for (var i = 0; i < 1; i++) {
+          originals.forEach(function (li) {
+            var clone = li.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+          });
+        }
+        track.querySelectorAll('img').forEach(function (img) {
+          function toText() {
+            var name = document.createElement('span');
+            name.className = 'carriers__name';
+            name.textContent = img.alt;
+            img.replaceWith(name);
+          }
+          if (img.complete && img.naturalWidth === 0) toText();
+          else img.addEventListener('error', toText);
+        });
+      })();
+    </script>
 
     <!-- ===================================================
          OUR APPROACH
@@ -726,7 +783,7 @@
             src="assets/brand/logo.jpg"
             alt="Cedar Grove Senior Health"
             class="footer__logo-img">
-          <p class="footer__tagline">&ldquo;Solutions You Can Count On&rdquo;</p>
+          
           <address class="footer__contact" aria-label="Contact information">
             <ul class="footer__contact-list" role="list">
               <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="sr-only">Primary Phone: </span>

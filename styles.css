@@ -1030,11 +1030,16 @@ section[id],
 .carousel__overlay {
   position: absolute;
   inset: 0;
-  /* #369851 on the left (behind the text) fading to white on the right */
-  background: linear-gradient(to right,
-      rgb(var(--rgb-hero-green) / 0.88) 0%,
-      rgb(var(--rgb-hero-green) / 0.60) 40%,
-      rgb(var(--rgb-white) / 0.15) 100%);
+  /* Deep ink scrim rising behind the bottom-centered text, clearing to the
+     untinted photo above; a soft top band keeps the white nav legible */
+  background:
+    linear-gradient(to bottom,
+      rgb(var(--rgb-ink) / 0.45) 0%,
+      rgb(var(--rgb-ink) / 0) 22%),
+    linear-gradient(to top,
+      rgb(var(--rgb-ink) / 0.82) 0%,
+      rgb(var(--rgb-ink) / 0.65) 30%,
+      rgb(var(--rgb-ink) / 0) 60%);
 }
 
 /* ── Overlay text ── */
@@ -1043,12 +1048,15 @@ section[id],
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-pad);
-  padding-block: calc(80px + var(--sp-10)) var(--sp-16);
+  /* Bottom padding clears the dot indicators */
+  padding-block: calc(80px + var(--sp-10)) calc(var(--sp-16) + var(--sp-6));
   box-sizing: border-box;
 }
 
@@ -1175,7 +1183,7 @@ section[id],
 /* ── Per-slide CTA button ── */
 .btn.carousel__cta {
   margin-top: var(--sp-6);
-  align-self: flex-start;
+  align-self: center;
   max-width: 100%;
   text-align: center;
 }
@@ -1190,13 +1198,15 @@ section[id],
   }
 
   .carousel__overlay {
+    /* Text sits at the bottom on mobile, so the scrim rises from there */
     background:
-      linear-gradient(
-        to top,
-        rgb(var(--rgb-hero-green) / 0.82) 0%,
-        rgb(var(--rgb-hero-green) / 0.60) 45%,
-        rgb(var(--rgb-white) / 0.15) 100%
-      );
+      linear-gradient(to bottom,
+        rgb(var(--rgb-ink) / 0.45) 0%,
+        rgb(var(--rgb-ink) / 0) 18%),
+      linear-gradient(to top,
+        rgb(var(--rgb-ink) / 0.85) 0%,
+        rgb(var(--rgb-ink) / 0.60) 35%,
+        rgb(var(--rgb-ink) / 0) 65%);
   }
 
   .carousel__img {
@@ -1255,6 +1265,147 @@ section[id],
   }
 }
 
+
+/* ─────────────────────────────────────────────────────────────
+   9b. CARRIERS LOGO STRIP
+───────────────────────────────────────────────────────────── */
+.s-carriers {
+  padding-block: var(--sp-16);
+  background-color: var(--c-white);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.carriers__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--c-heading);
+  margin-bottom: var(--sp-10);
+}
+
+/* Short brand accent under the heading */
+.carriers__label::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: var(--sp-3) auto 0;
+  border-radius: 2px;
+  background: var(--c-teal);
+}
+
+/* Soft fade at both edges so logos glide in and out */
+.carriers__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* JS clones the set once; moving -50% lands exactly on the copy */
+.carriers__track {
+  display: flex;
+  width: max-content;
+  margin: 0;
+  /* Room for card shadows inside the clipped viewport */
+  padding: var(--sp-2) 0 var(--sp-3);
+  list-style: none;
+  animation: carriers-scroll 60s linear infinite;
+}
+
+.carriers__viewport:hover .carriers__track {
+  animation-play-state: paused;
+}
+
+@keyframes carriers-scroll {
+  to { transform: translateX(-50%); }
+}
+
+.carriers__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  /* Trailing margin (not flex gap) keeps both halves equal for a seamless loop */
+  margin-right: var(--sp-5);
+  /* Fixed width so every card matches; fits the widest logo (218px) */
+  width: 260px;
+  padding-inline: var(--sp-5);
+  background-color: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.carriers__item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Each logo carries its own --w (sized so all logos read equally heavy) */
+.carriers__logo {
+  display: block;
+  width: var(--w);
+  height: auto;
+}
+
+/* Text stand-in until a logo file is added */
+.carriers__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--c-text-muted);
+}
+
+@media (max-width: 768px) {
+  .s-carriers {
+    padding-block: var(--sp-12);
+  }
+
+  .carriers__label {
+    font-size: var(--text-xl);
+    margin-bottom: var(--sp-8);
+  }
+
+  .carriers__item {
+    height: 68px;
+    width: 204px;
+    margin-right: var(--sp-4);
+    padding-inline: var(--sp-3);
+  }
+
+  .carriers__logo {
+    width: calc(var(--w) * 0.8);
+  }
+
+  .carriers__name {
+    font-size: var(--text-base);
+  }
+}
+
+/* No motion: show one static, centered row that wraps */
+@media (prefers-reduced-motion: reduce) {
+  .carriers__viewport {
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+
+  .carriers__track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: var(--sp-4);
+  }
+
+  .carriers__item[aria-hidden="true"] {
+    display: none;
+  }
+}
 
 /* ─────────────────────────────────────────────────────────────
    10. APPROACH
@@ -3049,6 +3200,18 @@ section[id],
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
+}
+
+/* Placeholder until a photo is available */
+.team-card__initials {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--c-teal-deep);
 }
 
 .team-card__body {
