@@ -1,5 +1,5 @@
 /* =============================================================
-   CG HEALTHCARE GROUP — STYLESHEET
+   CEDAR GROVE SENIOR HEALTH SOLUTIONS — STYLESHEET
    Color scheme: teal → lime brand gradient (assets/brand/Gradient.jpg)
    All colors are defined once in :root (section 1) — edit them there.
    Target audience: 65+ seniors; accessibility-first
@@ -2903,7 +2903,7 @@ section[id],
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--sp-3);
+  gap: var(--sp-2) var(--sp-6);
   text-align: center;
 }
 
@@ -2911,6 +2911,29 @@ section[id],
   font-size: var(--text-xs);
   color: rgb(var(--rgb-white) / 0.50);
   max-width: none;
+}
+
+/* Legal links (Privacy Policy · Terms and Conditions) */
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-2) var(--sp-3);
+  font-size: var(--text-xs);
+}
+
+.footer__legal a {
+  color: rgb(var(--rgb-white) / 0.70);
+}
+
+.footer__legal a:hover,
+.footer__legal a[aria-current="page"] {
+  color: var(--c-white);
+}
+
+.footer__legal-sep {
+  color: rgb(var(--rgb-white) / 0.35);
 }
 
 .footer__proto-note {
@@ -3310,6 +3333,80 @@ section[id],
   .team-card,
   .team-card:hover {
     transition: none;
+  }
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   18c. LEGAL PAGES (privacy.html, terms-and-conditions.html)
+───────────────────────────────────────────────────────────── */
+/* Plain page: the fixed header (80px + 3px border) sits above the title */
+.s-legal {
+  position: relative;
+  z-index: 1;
+  padding: calc(83px + var(--sp-12)) 0 var(--sp-20);
+  background-color: var(--c-white);
+}
+
+.legal__title {
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+  margin-bottom: var(--sp-3);
+}
+
+.legal {
+  width: 100%;
+  max-width: 48rem;
+  margin-inline: auto;
+  padding-inline: var(--sp-4);
+}
+
+.legal__meta {
+  font-size: var(--text-sm);
+  color: var(--c-text-muted);
+  margin-bottom: var(--sp-8);
+  padding-bottom: var(--sp-6);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.legal__meta strong {
+  color: var(--c-text-primary);
+}
+
+.legal h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--sp-10);
+  margin-bottom: var(--sp-3);
+  scroll-margin-top: 6rem;
+}
+
+.legal p {
+  max-width: none;
+  margin-bottom: var(--sp-4);
+  color: var(--c-text-secondary);
+}
+
+.legal ul {
+  list-style: disc;
+  padding-left: var(--sp-6);
+  margin-bottom: var(--sp-4);
+}
+
+.legal li {
+  margin-bottom: var(--sp-2);
+  color: var(--c-text-secondary);
+}
+
+.legal li::marker {
+  color: var(--c-teal);
+}
+
+.legal li strong {
+  color: var(--c-text-primary);
+}
+
+@media (max-width: 480px) {
+  .s-legal {
+    padding: calc(83px + var(--sp-8)) 0 var(--sp-16);
   }
 }
 

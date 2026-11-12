@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Terms and Conditions for the Cedar Grove Senior Health Solutions website, an independent insurance agency in Covington, Louisiana.">
+  <title>Terms and Conditions — Cedar Grove Senior Health Solutions</title>
+  <link rel="canonical" href="https://cedargrovesolutionsgroup.com/terms-and-conditions">
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* Tailwind colors read the CSS tokens in styles.css :root —
+       the color scheme lives there (ref: assets/brand/Gradient.jpg). */
+    const token = (name) => `rgb(var(--rgb-${name}) / <alpha-value>)`;
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal:            token('teal'),
+              'teal-green':    token('teal-green'),
+              mid:             token('mid'),
+              'lime-green':    token('lime-green'),
+              lime:            token('lime'),
+              'teal-deep':     token('teal-deep'),
+              'lime-deep':     token('lime-deep'),
+              'teal-dark':  token('teal-dark'),
+              'lime-dark':  token('lime-dark'),
+              'lime-light':    token('lime-light'),
+              'teal-tint':     token('teal-tint'),
+              'lime-tint':     token('lime-tint'),
+            },
+            ink: {
+              DEFAULT: token('ink'),
+              soft:    token('ink-soft'),
+              muted:   token('ink-muted'),
+            },
+            line: token('line'),
+          },
+          maxWidth: {
+            '8xl': 'var(--container-max)',   /* 80% of the page */
+          },
+          backgroundImage: {
+            'grad-brand': 'var(--grad-brand)',
+            'grad-deep':  'var(--grad-deep)',
+            'grad-dark':  'var(--grad-dark)',
+            'grad-soft':  'var(--grad-soft)',
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ======================================================
+       SITE HEADER / NAVIGATION
+  ====================================================== -->
+  <header class="site-header site-header--scrolled" role="banner">
+    <div class="container max-w-8xl mx-auto px-4">
+      <nav class="nav " aria-label="Main navigation">
+
+        <a href="index.html" class="nav__logo" aria-label="Cedar Grove Senior Health Solutions — return to home">
+          <!-- White logo over the hero; swaps to logo.jpg once the bar turns white -->
+          <img
+            src="assets/brand/logo-fullclear.png"
+            alt="Cedar Grove Senior Health Solutions"
+            class="nav__logo-img nav__logo-img--top">
+          <img
+            src="assets/brand/logo.jpg"
+            alt=""
+            aria-hidden="true"
+            class="nav__logo-img nav__logo-img--scrolled">
+        </a>
+
+        <!-- CSS-only mobile toggle via checkbox sibling selector -->
+        <input type="checkbox" id="nav-toggle" class="nav__checkbox" aria-hidden="true">
+        <label for="nav-toggle" class="nav__hamburger" aria-label="Open navigation menu" aria-controls="nav-drawer">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </label>
+
+        <label for="nav-toggle" class="nav__backdrop" aria-hidden="true" tabindex="-1"></label>
+
+        <div class="nav__drawer" id="nav-drawer">
+          <div class="nav__drawer-top">
+            <img
+              src="assets/brand/logo.jpg"
+              alt=""
+              class="nav__drawer-logo"
+              aria-hidden="true">
+            <p class="nav__drawer-tagline">Solutions You Can Count On</p>
+          </div>
+
+          <ul class="nav__links" role="list">
+            <li><a href="index.html#home"        class="nav__link">Home</a></li>
+            <li><a href="team.html"    class="nav__link">Our Team</a></li>
+            <li><a href="index.html#services"     class="nav__link ">Medicare Info</a></li>
+            <li><a href="index.html#contact"     class="nav__link ">Contact Us</a></li>
+             <li><a href="https://event.cedargrovesolutiongroup.com/"    class="nav__link nav__link--cta">Webinars</a></li>
+          </ul>
+
+          <div class="nav__drawer-footer">
+            <a href="tel:9852821000" class="nav__phone">
+              <svg class="nav__phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="nav__phone-text">
+                <span class="nav__phone-label">Call us</span>
+                <span class="nav__phone-number">(985) 282-1000</span>
+              </span>
+            </a>
+
+            <div class="nav__social" aria-label="Social media">
+              <a
+                href="https://facebook.com/cedargrovemedins"
+                class="nav__social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                </svg>
+              </a>
+              <a
+                href="index.html#contact"
+                class="nav__social-link"
+                aria-label="Get in touch">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======================================================
+       MAIN CONTENT
+  ====================================================== -->
+  <main id="main">
+
+    <section class="s-legal" aria-labelledby="legal-heading">
+      <article class="legal">
+
+        <h1 id="legal-heading" class="legal__title">Terms and Conditions</h1>
+        <p class="legal__meta">
+          <strong>Cedar Grove Senior Health Solutions</strong><br>
+          Effective date: <time datetime="2026-11-11">November 11, 2026</time>
+        </p>
+
+        <h2 id="acceptance-of-terms">Acceptance of terms</h2>
+        <p>By using the Cedar Grove Senior Health Solutions website (the "Site"), you agree to these Terms and Conditions. If you do not agree, please do not use the Site.</p>
+
+        <h2 id="informational-purposes-only">Informational purposes only</h2>
+        <p>The content on this Site is general information about insurance products and services. It is not a quote, an offer of coverage, or a guarantee that any specific plan, benefit, or price is available to you. Plan availability, benefits, and premiums vary by carrier, location, age, and eligibility, and are subject to change. Any prices shown are examples only ("starting at" or "as low as" figures reflect the lowest premium available for qualifying applicants in select areas) and are not a promise of the premium you will pay.</p>
+
+        <h2 id="no-agency-or-government-affiliation">No agency or government affiliation</h2>
+        <p>Cedar Grove Senior Health Solutions is an independent insurance agency. We are not affiliated with, endorsed by, or acting on behalf of Medicare, Medicaid, or any federal or state government agency.</p>
+
+        <h2 id="quotes-and-enrollment">Quotes and enrollment</h2>
+        <p>Quotes provided by our licensed agents are estimates based on the information you provide. Final premiums and eligibility are determined by the insurance carrier. Coverage becomes effective only when a carrier approves your application and issues your policy or plan.</p>
+
+        <h2 id="acceptable-use">Acceptable use</h2>
+        <p>You agree to use the Site only for lawful purposes and to provide accurate information when submitting forms or communicating with us.</p>
+
+        <h2 id="intellectual-property">Intellectual property</h2>
+        <p>The Site's content, text, graphics, and logos are the property of Cedar Grove Senior Health Solutions or its licensors and may not be reproduced without permission.</p>
+
+        <h2 id="third-party-links">Third-party links</h2>
+        <p>The Site may link to third-party websites. We are not responsible for the content or privacy practices of those sites.</p>
+
+        <h2 id="limitation-of-liability">Limitation of liability</h2>
+        <p>The Site is provided "as is" without warranties of any kind. To the fullest extent permitted by law, Cedar Grove Senior Health Solutions will not be liable for any damages arising from use of the Site.</p>
+
+        <h2 id="governing-law">Governing law</h2>
+        <p>These terms are governed by the laws of the State of Louisiana.</p>
+
+        <h2 id="contact-us">Contact us</h2>
+        <address class="legal__contact">
+          <p>
+            Cedar Grove Senior Health Solutions<br>
+            406 N. Florida Street, Suite 1, Covington, LA 70433<br>
+            Phone: <a href="tel:9852821000">(985) 282-1000</a>
+          </p>
+        </address>
+
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container max-w-8xl mx-auto px-4">
+
+      <div class="footer__grid footer__grid--with-map">
+        <div class="footer__brand">
+          <img
+            src="assets/brand/logo.jpg"
+            alt="Cedar Grove Senior Health Solutions"
+            class="footer__logo-img">
+          <p class="footer__tagline">&ldquo;Solutions You Can Count On&rdquo;</p>
+          <address class="footer__contact" aria-label="Contact information">
+            <ul class="footer__contact-list" role="list">
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="sr-only">Primary Phone: </span>
+                <a href="tel:9852821000">(985) 282-1000</a></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg><span class="sr-only">Fax: </span>
+                <span>(985) 951-2048</span></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span class="sr-only">Email: </span>
+                <a href="mailto:info@reply.cedargrovesolutiongroup.com">info<wbr>@reply.<wbr>cedargrovesolutiongroup.com</a></li>
+              <li><svg class="footer__contact-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="sr-only">Address: </span>
+                <span>406 N. Florida Street, Suite 1<br>Covington, LA 70433</span></li>
+                <li>
+
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+
+                  <span>
+                    <a href="https://www.facebook.com/cedargroveseniorhealthsolutions/"
+                       target="_blank" rel="noopener noreferrer">
+                      facebook.com/cedargrovesolutiongroup/
+                    </a>
+                  </span>
+                </li>
+            </ul>
+          </address>
+
+        </div>
+
+        <nav class="footer__nav" aria-label="Coverage types">
+          <h4 class="footer__nav-title">Coverage</h4>
+          <ul role="list">
+            <li><a href="index.html#services">Original Medicare</a></li>
+            <li><a href="index.html#services">Medicare Supplement</a></li>
+            <li><a href="index.html#services">Medicare Advantage</a></li>
+            <li><a href="index.html#services">Prescription Drug Plans</a></li>
+            <li><a href="index.html#services">Dental / Vision / Hearing</a></li>
+            <li><a href="index.html#services">Hospital Indemnity</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer__nav" aria-label="Company">
+          <h4 class="footer__nav-title">Company</h4>
+          <ul role="list">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div class="footer__map">
+          <iframe
+            title="Map to Cedar Grove Senior Health Solutions — 406 N. Florida Street, Suite 1, Covington, LA 70433"
+            src="https://maps.google.com/maps?q=406%20N.%20Florida%20Street%2C%20Suite%201%2C%20Covington%2C%20LA%2070433&z=15&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="footer__disclaimer">
+
+        <p>Cedar Grove Senior Health Solutions is a licensed independent insurance agency. Use of this site does not obligate
+          you to enroll in any plan.</p>
+        <p>Please contact
+          <a href="https://www.medicare.gov" target="_blank" rel="noopener noreferrer">Medicare.gov</a>,
+          call <strong>1-800-MEDICARE</strong> (1-800-633-4227), or contact your local State Health
+          Insurance Assistance Program (SHIP) to get information on all of your options.</p>
+      </div>
+
+      <div class="footer__bottom text-center">
+        <p>&copy; 2026 Cedar Grove Senior Health Solutions. All rights reserved.</p>
+        <nav class="footer__legal" aria-label="Legal">
+          <a href="/privacy">Privacy Policy</a>
+          <span class="footer__legal-sep" aria-hidden="true">&middot;</span>
+          <a href="/terms-and-conditions" aria-current="page">Terms and Conditions</a>
+        </nav>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+  /* No hero photo on legal pages, so the header stays in its solid
+     white (--scrolled) state and needs no scroll listener. */
+
+  /* ── Mobile drawer: close on link tap / Escape ── */
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var drawer = document.getElementById('nav-drawer');
+    var hamburger = document.querySelector('.nav__hamburger');
+    if (!toggle || !drawer) return;
+
+    function setOpen(open) {
+      toggle.checked = open;
+      if (hamburger) {
+        hamburger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    }
+
+    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+
+    drawer.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && toggle.checked) setOpen(false);
+    });
+
+    toggle.addEventListener('change', function () {
+      setOpen(toggle.checked);
+    });
+  }());
+  </script>
+</body>
+</html>
